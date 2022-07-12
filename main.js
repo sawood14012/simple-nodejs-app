@@ -4,11 +4,13 @@ const Users = require('./users');
 const port = process.env.PORT || 8081
 
 function handleGetReq(req, res) {
-    if (req.url !== '/users') {
-        return handleError(res, 404)
-    }
     res.setHeader('Content-Type', 'application/json;charset=utf-8');
-    return res.end(JSON.stringify(Users.getUsers()))
+    if (req.url === '/') {
+        return res.end(`{"live": "ok"}`) 
+    } else if (req.url === '/users') {
+        return res.end(JSON.stringify(Users.getUsers()))
+    }
+    return handleError(res, 404)
 }
 
 function handleError (res, code) { 
