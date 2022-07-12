@@ -2,7 +2,7 @@ const http = require('http');
 const Users = require('./users');
 
 const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8081
 
 function handleGetReq(req, res) {
     if (req.url !== '/users') {
