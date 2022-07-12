@@ -1,7 +1,6 @@
 const http = require('http');
 const Users = require('./users');
 
-const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 8081
 
 function handleGetReq(req, res) {
@@ -23,6 +22,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(port, host, () => {
-  console.log(`The server start on http://${host}:${port}/`);
+server.listen(port, () => {
+  console.log(`The server start on port ${port}`);
 });
